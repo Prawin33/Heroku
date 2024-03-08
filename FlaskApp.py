@@ -30,9 +30,10 @@ def predict():
     int_features = [x for x in request.form.values()]
     final_features = [np.array(int_features)]
     prediction = classifier.predict(final_features)
+    output = prediction[0]
 
     
-    return render_template('index.html', prediction_text='The flower belong to species {}'.format(prediction))
+    return render_template('index.html', prediction_text='The flower belong to species {}'.format(output))
     
     
 
